@@ -17,7 +17,7 @@ static int* V;
 static int B;
 
 // Declaring functions
-int quadri(int N, long long M, int* V)
+int quadri_prima_versione(int N, long long M, int* V)
 {
     vector <long long int> somme;
     //partial_sum(V, V + N, somme.begin());
@@ -27,6 +27,8 @@ int quadri(int N, long long M, int* V)
 
     int i = 0, j = 0;
     long long int totale = V[0];
+    //Inizializza l'intervallo di partenza,
+    //serve nel caso l'intervallo migliore sia all'inizio
     while (totale <= M && j < N)
     {
         j++;
@@ -52,6 +54,28 @@ int quadri(int N, long long M, int* V)
     }
     return risultato;
 }
+
+// Declaring functions
+int quadri(int N, long long M, int* V)
+{
+    int i = -1, j = -1;
+    long long int totale = 0;
+    int B = N;
+    int risultato = N;
+    while (j < N)
+    {   if (totale <= M)
+            totale += V[++j];
+        else
+        {
+           totale -= V[++i];
+           B = j - i;
+        }
+        if (B < risultato)
+            risultato = B;
+    }
+    return risultato ;
+}
+
 
 int main() {
 	fr = stdin;
