@@ -60,18 +60,17 @@ int quadri(int N, long long M, int* V)
 {
     int i = -1, j = -1;
     long long int totale = 0;
-    int B = N;
     int risultato = N;
-    while (j < N)
-    {   if (totale <= M)
+    while (j < N && risultato > 0)
+    {
+        if (totale <= M)
             totale += V[++j];
         else
         {
            totale -= V[++i];
-           B = j - i;
+           if (j - i < risultato)
+                risultato = j - i;
         }
-        if (B < risultato)
-            risultato = B;
     }
     return risultato ;
 }
