@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1619244186 source:c:\users\alex_2\desktop\appunti_lezioni\appunti_olimpiadi\mostra\main.cpp
+	<iostream>
+	<vector>
+	<cstdio>
+
