@@ -7,7 +7,7 @@ using namespace std;
 const int MAXN = 1000;
 const int MAXM = 1000;
 
-#define RICORSIVA
+#define DINAMICA
 
 int dina[MAXM + 1][MAXN + 1];
 
@@ -24,6 +24,7 @@ void stampa_matrice(int d[][MAXM + 1], int m, int n)
 
 //Ci deve essere un problema che non mi permette di prendere
 //tutti e 21 i punti, al massimo arrivo a 18
+//Rimesso a posto, un errore nell'indice di un ciclo, 21 punti
 int dinamica(int visitatore, int N, int guida, int M,
             vector<int> &V,
             vector<int> &G, int soluzione)
@@ -43,7 +44,7 @@ int dinamica(int visitatore, int N, int guida, int M,
                 if (V.at(j) < G.at(i))
                 {
                     int massimo = 0;
-                    for (int k = i - 1; k > 0; k--)
+                    for (int k = 0; k <= i - 1; k++)
                         if (dina[k][j-1] > massimo)
                             massimo = dina[k][j-1];
                     temp = massimo + 2;
@@ -52,7 +53,6 @@ int dinamica(int visitatore, int N, int guida, int M,
                     dina[i][j] = dina[i][j-1] + 1;
                 else
                     dina[i][j] = temp;
-
             }
 
     }
