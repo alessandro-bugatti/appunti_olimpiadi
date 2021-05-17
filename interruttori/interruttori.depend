@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1621284289 source:c:\users\alex_2\desktop\appunti_lezioni\appunti_olimpiadi\interruttori\main.cpp
+	<iostream>
+	<fstream>
+	<utility>
+	<vector>
+	<list>
+	<queue>
+
